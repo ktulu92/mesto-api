@@ -1,18 +1,14 @@
 const fs = require('fs').promises;
 
-const readJson = (path) => {
-  return fs.readFile(path)
-  .catch(err=>{
-    throw `file ${path} not found`
+const readJson = (path) => fs.readFile(path)
+  .catch(() => {
+    throw [{ message: 'Проверьте имя и путь файла!' }];
   })
-  .then((text)=>{
-    try{
+  .then((text) => {
+    try {
       return JSON.parse(text);
-  }
-  catch(_){
-    throw 'Json is invalid';
-
-  }
-})
-}
+    } catch (_) {
+      throw [{ message: 'Битый JSON!' }];
+    }
+  });
 module.exports = readJson;

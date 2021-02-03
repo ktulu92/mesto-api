@@ -1,8 +1,8 @@
-const readJson = require("../utils/readJsonFromFile");
-const path = require("path");
+const path = require('path');
+const readJson = require('../utils/readJsonFromFile');
 
 const getCards = (req, res) => {
-  const fileName = path.join(__dirname, "..", "data", "cards.json");
+  const fileName = path.join(__dirname, '..', 'data', 'cards.json');
   readJson(fileName)
     .then((cards) => {
       res.send(cards);

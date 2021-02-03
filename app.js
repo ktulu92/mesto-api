@@ -1,15 +1,12 @@
-
-const express = require("express");
-const router = require('./routers')
+const express = require('express');
+const router = require('./routers');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3100;
 
-app.use('/', express.static('public'))
-app.use('/',router)
+app.use('/', express.static('public'));
+app.use('/', router);
 
-app.listen(PORT, ()=>{
-  console.log(`application run on port ${PORT}`)
-})
-
-
+app.listen(PORT, () => {
+  console.log(`application run on port ${PORT}`);
+});
